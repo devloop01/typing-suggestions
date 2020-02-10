@@ -107,7 +107,9 @@ textInputEl.addEventListener("keydown", e => {
 		appendTextToList();
 	}
 
-	if (textInputEl.value.length != 0) {
+
+
+	if (textInputEl.value.length != 0 && suggestedWordsArray.length != 0) {
 		if (e.keyCode == UP_ARROW_KEYCODE) {
 			if (currentWordIndex == 0) return;
 			currentWordIndex--;
@@ -118,6 +120,14 @@ textInputEl.addEventListener("keydown", e => {
 			if (currentWordIndex == suggestedWordsArray.length - 1) return;
 			currentWordIndex++;
 			suggestionEl.innerHTML = suggestedWordsArray[currentWordIndex];
+		}
+
+		if(e.keyCode == UP_ARROW_KEYCODE || e.keyCode == DOWN_ARROW_KEYCODE){
+			if (textInputEl.value == suggestedWordsArray[currentWordIndex]) {
+				svgTabIcon.classList.add("hidden");
+			}else{
+				svgTabIcon.classList.remove("hidden");
+			}
 		}
 
 		if (e.keyCode == BACKSPACE_KEYCODE) {
@@ -138,31 +148,34 @@ svgTabIcon.addEventListener('click', () => {
 })
 
 svgEnterIcon.addEventListener('click', () => {
-	appendTextToList(textInputEl);
+	appendTextToList();
 })
 
 removeClassAfterAnimationCompletes(inputContainerEl, "animate");
 
 function appendTextToList(){
-		let inputValue = textInputEl.value;
-		let words = inputValue.split(" ");
-		for (let i in words) {
-			if (words[i].length != 0) {
-				wordsArray.push(words[i]);
-				textInputEl.value = "";
-				suggestionEl.innerHTML = "";
-			}
+	let inputValue = textInputEl.value;
+	let words = inputValue.split(" ");
+	for (let i in words) {
+		if (words[i].length != 0) {
+			wordsArray.push(words[i]);
+			textInputEl.value = "";
+			suggestionEl.innerHTML = "";
 		}
-		wordsArray = removeDuplicatesFromArray(wordsArray);
-		inputContainerEl.classList.add("animate");
-		svgTabIcon.classList.add("hidden");
-		svgEnterIcon.classList.add("hidden");
-		removeClassAfterAnimationCompletes(inputContainerEl, "animate");
+	}
+	wordsArray = removeDuplicatesFromArray(wordsArray);
+	currentWordIndex = 0;
+	suggestedWordsArray = [];
+	inputContainerEl.classList.add("animate");
+	svgTabIcon.classList.add("hidden");
+	svgEnterIcon.classList.add("hidden");
+	removeClassAfterAnimationCompletes(inputContainerEl, "animate");
 }
 
 function enterSuggestionToInputEl(){
 	textInputEl.value = suggestedWordsArray[currentWordIndex];
 	suggestionEl.innerHTML = "";
+	suggestedWordsArray = [];
 	svgTabIcon.classList.add("hidden");
 	svgEnterIcon.classList.add("hidden");
 }
