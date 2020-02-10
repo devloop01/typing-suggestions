@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Suggestion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+        <div class="input-container">
+            <input type="text" name="text" id="text" placeholder="Type Here" autocomplete="off">
+            <span class="suggestion-container"></span>
+            <div class="icons-container">
+                <div class="icon tab-key hidden">
+                    <svg>
+                        <use xlink:href="#tab-key"></use>
+                    </svg>
+                </div>
+                <div class="icon enter-key hidden">
+                    <svg>
+                        <use xlink:href="#enter-key"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <svg class="icons">
+        <symbol id="tab-key" viewBox="0 0 448 448">
+            <polygon points="225.813,126.187 302.293,202.667 0,202.667 0,245.333 302.293,245.333 225.813,321.813 256,352 384,224 256,96 
+							" />
+            <rect x="405.333" y="96" width="42.667" height="256" />
+        </symbol>
+        <symbol id="enter-key" viewBox="0 0 280.823 280.823">
+            <path d="m250.734 40.137-90.265-.02v20.059h90.265c5.534 0 10.029 4.515 10.029 10.049v80.216c0 5.534-4.496
+            10.029-10.029 10.029h-212.34l45.877-45.877-14.182-14.182-70.089 70.088 70.206 70.206
+            14.182-14.182-45.994-45.994h212.341c16.592 0 30.088-13.497
+            30.088-30.088v-80.216c0-16.592-13.497-30.088-30.089-30.088z" />
+        </symbol>
+    </svg>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
