@@ -1,0 +1,197 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-moz-selection {
+  color: #222;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+::selection {
+  color: #222;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #52de97;
+}
+
+input {
+  outline: none;
+  border: 0;
+}
+
+.icons {
+  display: none;
+}
+
+.app {
+  width: 400px;
+  height: 400px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.app .input-container {
+  position: relative;
+  width: 360px;
+  height: 65px;
+  border-radius: 10px;
+  background: #fff;
+  -webkit-box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.044), 0 22.3px 17.9px rgba(0, 0, 0, 0.066), 0 100px 80px rgba(0, 0, 0, 0.11);
+          box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.044), 0 22.3px 17.9px rgba(0, 0, 0, 0.066), 0 100px 80px rgba(0, 0, 0, 0.11);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1, 1);
+          transform: translateZ(0) scale(1, 1);
+}
+
+.app .input-container.animate {
+  -webkit-animation: stretch-animation 800ms ease;
+          animation: stretch-animation 800ms ease;
+}
+
+.app .input-container [type="text"] {
+  position: absolute;
+  width: 360px;
+  height: 65px;
+  color: #52de97;
+  font-family: "sans-serif";
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 0px 45px 0px 18px;
+  caret-color: #000;
+  background: transparent;
+  z-index: 5;
+}
+
+.app .input-container [type="text"]::-webkit-input-placeholder {
+  color: rgba(34, 34, 34, 0.55);
+}
+
+.app .input-container [type="text"]:-ms-input-placeholder {
+  color: rgba(34, 34, 34, 0.55);
+}
+
+.app .input-container [type="text"]::-ms-input-placeholder {
+  color: rgba(34, 34, 34, 0.55);
+}
+
+.app .input-container [type="text"]::placeholder {
+  color: rgba(34, 34, 34, 0.55);
+}
+
+.app .input-container .suggestion-container {
+  width: 360px;
+  height: 65px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #414856;
+  opacity: 0.65;
+  font-family: "sans-serif";
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 0px 45px 0px 18px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.app .input-container .icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateX(0%) translateY(-50%);
+          transform: translateX(0%) translateY(-50%);
+  opacity: 1;
+  -webkit-transition: all 180ms ease-in;
+  transition: all 180ms ease-in;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 10;
+}
+
+.app .input-container .icon.hidden {
+  -webkit-transform: translateX(80%) translateY(-50%);
+          transform: translateX(80%) translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app .input-container .icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #222;
+  pointer-events: none;
+}
+
+@-webkit-keyframes stretch-animation {
+  0% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  10% {
+    -webkit-transform: scale(1.02, 0.98);
+            transform: scale(1.02, 0.98);
+  }
+  30% {
+    -webkit-transform: scale(0.98, 1.02);
+            transform: scale(0.98, 1.02);
+  }
+  50% {
+    -webkit-transform: scale(1.02, 0.98);
+            transform: scale(1.02, 0.98);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+@keyframes stretch-animation {
+  0% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  10% {
+    -webkit-transform: scale(1.02, 0.98);
+            transform: scale(1.02, 0.98);
+  }
+  30% {
+    -webkit-transform: scale(0.98, 1.02);
+            transform: scale(0.98, 1.02);
+  }
+  50% {
+    -webkit-transform: scale(1.02, 0.98);
+            transform: scale(1.02, 0.98);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+/*# sourceMappingURL=style.css.map */
