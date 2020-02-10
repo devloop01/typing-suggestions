@@ -175,7 +175,6 @@ function appendTextToList(){
 function enterSuggestionToInputEl(){
 	textInputEl.value = suggestedWordsArray[currentWordIndex];
 	suggestionEl.innerHTML = "";
-	suggestedWordsArray = [];
 	svgTabIcon.classList.add("hidden");
 	svgEnterIcon.classList.add("hidden");
 }
@@ -190,11 +189,11 @@ function removeClassAfterAnimationCompletes(el, className) {
 function filterArray(array, item, reverse = false) {
 	if (reverse) {
 		return array
-			.filter(word => compareTwoStrings(word, item))
+			.filter(word => returnSubstring(word, item))
 			.sort((a, b) => a.length - b.length);
 	} else {
 		return array
-			.filter(word => compareTwoStrings(word, item))
+			.filter(word => returnSubstring(word, item))
 			.sort((a, b) => b.length - a.length);
 	}
 }
@@ -203,7 +202,7 @@ function removeDuplicatesFromArray(array) {
 	return [...new Set(array.map(i => i))];
 }
 
-function compareTwoStrings(string, subString) {
+function returnSubstring(string, subString) {
 	let temp = string.split("", subString.length).join("");
 	if (subString == temp) return subString;
 }
